@@ -9,6 +9,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ROUTES } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 
+//Services
+import { SpotifyService } from './services/spotify.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
