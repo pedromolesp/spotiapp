@@ -5,14 +5,14 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class SpotifyService {
-  token: string = "BQB1ZBHigBx5H93rSAiKKPZ6IQ7QP39HjTwszDJMf8czj7IDWz--5eAnHhdGIt2nKe81i8P7uaPM2az3YvC7dGCJaexznUP0Zp8r6tb0IVvyivg3qf87Qm0jddysfpx2iE0PtASRsHpisDaE_nDLOU1NPW1Kz80";
+
   constructor(private http: HttpClient) {
     console.log("Servicio listo");
   }
   getQuery(query: string) {
     const url = `https://api.spotify.com/v1/${query}`;
     const headers = new HttpHeaders({
-      'Authorization': `Bearer ${this.token}`
+      'Authorization': `Bearer BQB1ZBHigBx5H93rSAiKKPZ6IQ7QP39HjTwszDJMf8czj7IDWz--5eAnHhdGIt2nKe81i8P7uaPM2az3YvC7dGCJaexznUP0Zp8r6tb0IVvyivg3qf87Qm0jddysfpx2iE0PtASRsHpisDaE_nDLOU1NPW1Kz80`
     });
 
     return this.http.get(url,
