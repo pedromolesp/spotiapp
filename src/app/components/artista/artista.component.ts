@@ -11,11 +11,13 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 export class ArtistaComponent {
   artist: any = {};
   loading: boolean;
+  topTracks: any[] = [];
 
   constructor(private router: ActivatedRoute, private spotify: SpotifyService) {
     this.router.params.subscribe(params => {
       this.loading = true;
       this.getArtista(params['id']);
+      this.getTopTracks(params['id']);
     });
   }
 
@@ -26,6 +28,12 @@ export class ArtistaComponent {
       this.artist = artist;
       this.loading = false;
 
+    });
+  }
+  getTopTracks(id: string) {
+    this.spotify.getTopTracks(id).subscribe(topTracks => {
+      this.topTracks = topTracks;
+      this.loading = false;
     });
   }
 
